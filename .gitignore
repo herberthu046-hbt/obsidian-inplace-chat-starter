@@ -1,0 +1,7 @@
+data.json
+workspace*.json
+.inplace-chat/
+.pdf-annotator/
+auth.json
+.env
+*.log

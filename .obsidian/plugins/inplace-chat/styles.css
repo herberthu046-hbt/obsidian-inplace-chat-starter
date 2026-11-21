@@ -1,0 +1,157 @@
+.doc-comment-span.ipc-unread {
+  outline: 2px solid #2389ff;
+  outline-offset: 2px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 4px rgba(35, 137, 255, .15);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.ipc-refresh { margin-bottom: 8px; }
+.ipc-inbox-row { border-bottom: 1px solid var(--background-modifier-border); padding: 12px 0; }
+.ipc-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.ipc-choice { display: flex; align-items: flex-start; gap: 8px; padding: 7px 8px; margin: 4px 0; border-radius: 6px; background: var(--background-secondary); }
+.ipc-choice input { flex: 0 0 auto; margin-top: 3px; }
+.ipc-choice span { color: var(--text-muted); white-space: pre-wrap; max-height: 100px; overflow: auto; }
+.ipc-warning { color: var(--text-warning); margin: 6px 0 0; }
+.ipc-preview { color: var(--text-muted); white-space: pre-wrap; max-height: 100px; overflow: auto; }
+.ipc-receipt { width: 100%; min-height: 280px; font-family: var(--font-monospace); }
+
+.ipc-status.is-working::before {
+  content: '';
+  display: inline-block;
+  width: .72em;
+  height: .72em;
+  margin-right: .4em;
+  border: 1.5px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  vertical-align: -.06em;
+  animation: ipc-status-spin .8s linear infinite;
+}
+
+@keyframes ipc-status-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ipc-status.is-working::before { animation: none; }
+}
+
+.dc-entry__text table,
+.dc-entry__text .math-block {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.dc-entry__text mjx-container[display='true'] {
+  width: max-content;
+  max-width: none;
+}
+
+.ipc-chat-view { display: flex; flex-direction: column; }
+.ipc-chat-view > .view-content { flex: 1; min-height: 0; }
+.ipc-chat-view .metadata-container { display: none; }
+.ipc-chat-composer { flex: 0 0 auto; padding: 12px 24px; border-top: 1px solid var(--background-modifier-border); background: var(--background-primary); }
+.ipc-chat-input { display: block; resize: none; width: 100%; min-height: 48px; max-height: 220px; line-height: 1.5; }
+.ipc-chat-composer-status { min-height: 18px; margin-top: 5px; color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.ipc-full-chat-link { display: block; padding: 6px 0; color: var(--text-accent); cursor: pointer; font-size: var(--font-ui-small); }
+.ipc-full-chat-button { position: relative; z-index: 3; display: inline-flex; margin-top: 8px; padding: 5px 12px; height: auto; pointer-events: auto; }
+.ipc-chat-card > .dc-card-foot.dc-foot-overlay { display: none; }
+.ipc-chat-hidden { display: none !important; }
+.ipc-reader { height: 100%; overflow: auto; padding: var(--size-4-6); }
+.ipc-reader > * { max-width: 980px; margin-inline: auto; }
+.ipc-reader-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--size-4-4); margin-bottom: var(--size-4-6); }
+.ipc-reader-heading h2 { margin: 0; }
+.ipc-reader-path { color: var(--text-muted); font-size: var(--font-ui-small); overflow-wrap: anywhere; }
+.ipc-reader-mode,
+.ipc-reader-status { display: inline-block; margin-top: var(--size-2-2); padding: 2px 8px; border-radius: 999px; background: var(--background-modifier-hover); color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.ipc-reader-actions { display: flex; flex-wrap: wrap; gap: var(--size-2-2); }
+.ipc-reader-threads { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--size-4-5); }
+.ipc-reader-thread { min-width: 0; padding: var(--size-4-5); border: 1px solid var(--background-modifier-border); border-radius: var(--radius-l); background: var(--background-primary-alt); }
+.ipc-reader-thread-head,
+.ipc-reader-entry-head { display: flex; align-items: center; gap: var(--size-2-3); }
+.ipc-reader-thread-head { justify-content: space-between; }
+.ipc-reader-thread-head h3 { margin: 0; }
+.ipc-reader-status.is-open { color: var(--text-accent); }
+.ipc-reader-quote { margin: var(--size-4-4) 0; padding: var(--size-4-3); border-inline-start: 3px solid var(--interactive-accent); background: var(--background-secondary); overflow-wrap: anywhere; }
+.ipc-reader-entries { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--size-4-3); }
+.ipc-reader-entry { min-width: 0; padding-top: var(--size-4-3); border-top: 1px solid var(--background-modifier-border); }
+.ipc-reader-entry:first-child { padding-top: 0; border-top: 0; }
+.ipc-reader-time { color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.ipc-reader-entry-body { min-width: 0; overflow-wrap: anywhere; }
+.ipc-reader-entry-body pre,
+.ipc-reader-quote pre { overflow-x: auto; }
+.ipc-reader-entry-body table,
+.ipc-reader-quote table,
+.ipc-reader-entry-body .math-block,
+.ipc-reader-quote .math-block {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.ipc-reader-entry-body mjx-container[display='true'],
+.ipc-reader-quote mjx-container[display='true'] {
+  width: max-content;
+  max-width: none;
+}
+.ipc-reader-state { padding: var(--size-4-6); color: var(--text-muted); }
+
+@media (max-width: 600px) {
+  .ipc-reader-header { display: block; }
+  .ipc-reader-actions { margin-top: var(--size-4-3); }
+}
+.ipc-diagnostics { max-height: 75vh; overflow: auto; }
+.ipc-usage-table { width: 100%; border-collapse: collapse; font-size: var(--font-smaller); }
+.ipc-usage-table th, .ipc-usage-table td { text-align: left; padding: 8px; border-bottom: 1px solid var(--background-modifier-border); white-space: pre-line; overflow-wrap: anywhere; }
+.ipc-event { padding: 6px 0; font-size: var(--font-smaller); border-bottom: 1px solid var(--background-modifier-border); overflow-wrap: anywhere; }
+
+/* Scope every PDF adjustment to the chat extension; keep native PDF data/UI owned by its plugin. */
+.ipc-pdf-unread { outline: 2px solid #2389ff; outline-offset: 2px; box-shadow: 0 0 0 4px rgba(35,137,255,.15); }
+.ipc-pdf-chat { min-width: 0; border-top: 1px solid var(--background-modifier-border); margin-top: 8px; padding-top: 8px; font-size: 13px; line-height: 1.45; }
+.ipc-pdf-thread { min-width: 0; }
+.ipc-pdf-entries { display: grid; gap: 8px; }
+.ipc-pdf-entry { min-width: 0; overflow-wrap: anywhere; }
+.ipc-pdf-entry-head { display: flex; align-items: baseline; gap: 6px; line-height: 1.3; }
+.ipc-pdf-author { font-size: 13px; font-weight: 600; }
+.ipc-pdf-time { color: var(--text-muted); font-size: 11px; white-space: nowrap; }
+.ipc-pdf-entry-body { font-size: 13px; overflow-wrap: anywhere; }
+.ipc-pdf-entry-body > :first-child { margin-top: 3px; }
+.ipc-pdf-entry-body > :last-child { margin-bottom: 0; }
+.ipc-pdf-entry-body p { margin-block: 4px; }
+.ipc-pdf-entry-body pre, .ipc-pdf-entry-body table, .ipc-pdf-entry-body .math-block { display: block; max-width: 100%; overflow-x: auto; }
+.ipc-pdf-entry-body mjx-container[display='true'] { width: max-content; max-width: none; }
+.ipc-pdf-composer { margin-top: 12px; }
+.ipc-pdf-input { display: block; width: 100%; min-height: 64px; resize: vertical; font: inherit; box-sizing: border-box; }
+.ipc-pdf-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ipc-pdf-actions button { font-size: var(--font-ui-smaller); height: auto; white-space: normal; padding: 4px 7px; }
+.ipc-pdf-chat-error { color: var(--text-error); }
+.ipc-pdf-chat-ambiguous { color: var(--text-muted); font-size: var(--font-ui-small); white-space: normal; }
+
+/* Citation navigation is transient: it never becomes a PDF Annotator mark or margin card. */
+.ipc-citation-flash {
+  position: absolute;
+  z-index: 30;
+  box-sizing: border-box;
+  pointer-events: none;
+  animation: ipc-citation-flash 1.6s ease-out forwards;
+}
+.ipc-citation-text-flash {
+  border-radius: 2px;
+  outline: 2px solid rgba(45, 137, 255, .98);
+  background: rgba(45, 137, 255, .30);
+  box-shadow: 0 0 0 4px rgba(45, 137, 255, .16), 0 0 14px rgba(45, 137, 255, .50);
+}
+.ipc-citation-page-flash {
+  inset: 3px;
+  border: 3px solid rgba(45, 137, 255, .95);
+  border-radius: 5px;
+  box-shadow: inset 0 0 18px rgba(45, 137, 255, .22), 0 0 15px rgba(45, 137, 255, .35);
+}
+@keyframes ipc-citation-flash {
+  0% { opacity: 0; filter: brightness(1); }
+  16% { opacity: 1; filter: brightness(1.25); }
+  42% { opacity: .28; filter: brightness(1); }
+  66% { opacity: .92; filter: brightness(1.2); }
+  100% { opacity: 0; filter: brightness(1); }
+}
