@@ -1,7 +1,7 @@
 {
   "format": 1,
   "name": "In-place Chat empty vault",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "permissions": {
     "sandbox": "danger-full-access",
     "approvalPolicy": "never"
@@ -26,8 +26,8 @@
     },
     {
       "path": ".obsidian/plugins/inplace-chat/manifest.json",
-      "bytes": 262,
-      "sha256": "0514ce7fe27f44e7c58ba558a30b6defdb64f2714408275d69960ca443e5a698"
+      "bytes": 271,
+      "sha256": "056bdf392328264f68420f02d228b305c7a9354bd8474bbe8a8174e728db15df"
     },
     {
       "path": ".obsidian/plugins/inplace-chat/styles.css",
@@ -106,8 +106,8 @@
     },
     {
       "path": "scripts/setup-codex-home.ps1",
-      "bytes": 7171,
-      "sha256": "c236418a795e52c2a1c98030138bd95bbe9358d950ed148f48fab8332fc295f1"
+      "bytes": 7939,
+      "sha256": "c518064023e501c11e7e2739e651daba012f58724a431d09e4dfc87894718655"
     },
     {
       "path": "THIRD-PARTY-NOTICES.md",

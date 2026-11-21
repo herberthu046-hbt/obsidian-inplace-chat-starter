@@ -1,7 +1,7 @@
 {
   "id": "inplace-chat",
   "name": "In-place Chat",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "minAppVersion": "1.7.2",
   "description": "Queue @chat comments, send when ready, and read chat replies in place.",
   "author": "In-place Chat contributors",

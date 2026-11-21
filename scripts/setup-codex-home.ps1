@@ -23,7 +23,24 @@ function Get-FullPath([string]$Value) {
     if ($Value -notmatch '^(?:[A-Za-z]:[\\/]|[\\/]{2})') {
         $Value = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Value)
     }
-    $full = [IO.Path]::GetFullPath($Value)
+    # .NET Framework expands existing 8.3 names; Node preserves their spelling.
+    if (-not ('InplaceChat.NativePath' -as [type])) {
+        Add-Type -TypeDefinition @'
+using System;
+using System.Text;
+using System.Runtime.InteropServices;
+namespace InplaceChat {
+    public static class NativePath {
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern uint GetFullPathNameW(string path, uint size, StringBuilder buffer, IntPtr filePart);
+    }
+}
+'@
+    }
+    $buffer = New-Object Text.StringBuilder 32768
+    $length = [InplaceChat.NativePath]::GetFullPathNameW($Value, $buffer.Capacity, $buffer, [IntPtr]::Zero)
+    if ($length -eq 0 -or $length -ge $buffer.Capacity) { throw "Cannot resolve Windows path: $Value" }
+    $full = $buffer.ToString()
     $root = [IO.Path]::GetPathRoot($full)
     if ($full.Length -gt $root.Length) { $full = $full.TrimEnd([char[]]'\/') }
     return $full
